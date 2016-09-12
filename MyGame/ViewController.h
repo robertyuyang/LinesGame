@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BoardViewObserver.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <BoardViewObserver>
 
-
+-(void)onBoardTapByIndexAtRow: (NSUInteger) x andColumn: (NSUInteger) y;
 @end
 
