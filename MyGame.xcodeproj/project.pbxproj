@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04A57F5F1D85325400A9DB47 /* UIView+Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A57F5E1D85325400A9DB47 /* UIView+Location.m */; };
+		04A57F621D85594700A9DB47 /* NextBallsBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A57F611D85594700A9DB47 /* NextBallsBoardView.m */; };
+		04A57F651D85980D00A9DB47 /* BallBoardSuperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A57F641D85980D00A9DB47 /* BallBoardSuperView.m */; };
+		04A57F681D86D91900A9DB47 /* RankingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A57F671D86D91900A9DB47 /* RankingsViewController.m */; };
+		04D7ACBD1D81C79C005FD9C6 /* GameConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D7ACBC1D81C79C005FD9C6 /* GameConfig.m */; };
+		04D7ACC01D827C26005FD9C6 /* ShortestPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D7ACBF1D827C26005FD9C6 /* ShortestPath.m */; };
+		04F1C75F1D82D1C300CDF462 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F1C75E1D82D1C300CDF462 /* Common.m */; };
 		F604CEA61D7D57A1002073B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F604CEA51D7D57A1002073B4 /* main.m */; };
 		F604CEA91D7D57A1002073B4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F604CEA81D7D57A1002073B4 /* AppDelegate.m */; };
 		F604CEAC1D7D57A1002073B4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F604CEAB1D7D57A1002073B4 /* ViewController.m */; };
@@ -15,6 +22,10 @@
 		F604CEB41D7D57A1002073B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F604CEB21D7D57A1002073B4 /* LaunchScreen.storyboard */; };
 		F604CEBF1D7D57A1002073B4 /* MyGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F604CEBE1D7D57A1002073B4 /* MyGameTests.m */; };
 		F604CECA1D7D57A1002073B4 /* MyGameUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F604CEC91D7D57A1002073B4 /* MyGameUITests.m */; };
+		F604CEDF1D7D8151002073B4 /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = F604CEDE1D7D8151002073B4 /* Ball.m */; };
+		F604CEE31D7D8D28002073B4 /* PlayBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = F604CEE21D7D8D27002073B4 /* PlayBoard.m */; };
+		F604CEE71D7D9169002073B4 /* RandomBallFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F604CEE61D7D9169002073B4 /* RandomBallFactory.m */; };
+		F618173E1D7E8BED0026D828 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = F618173D1D7E8BED0026D828 /* BoardView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +46,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04A57F5D1D85325400A9DB47 /* UIView+Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Location.h"; sourceTree = "<group>"; };
+		04A57F5E1D85325400A9DB47 /* UIView+Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Location.m"; sourceTree = "<group>"; };
+		04A57F601D85594700A9DB47 /* NextBallsBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextBallsBoardView.h; sourceTree = "<group>"; };
+		04A57F611D85594700A9DB47 /* NextBallsBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextBallsBoardView.m; sourceTree = "<group>"; };
+		04A57F631D85980D00A9DB47 /* BallBoardSuperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BallBoardSuperView.h; sourceTree = "<group>"; };
+		04A57F641D85980D00A9DB47 /* BallBoardSuperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BallBoardSuperView.m; sourceTree = "<group>"; };
+		04A57F661D86D91900A9DB47 /* RankingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingsViewController.h; sourceTree = "<group>"; };
+		04A57F671D86D91900A9DB47 /* RankingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingsViewController.m; sourceTree = "<group>"; };
+		04D7ACB91D816E49005FD9C6 /* BoardViewObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardViewObserver.h; sourceTree = "<group>"; };
+		04D7ACBA1D817625005FD9C6 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		04D7ACBB1D81C043005FD9C6 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
+		04D7ACBC1D81C79C005FD9C6 /* GameConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameConfig.m; sourceTree = "<group>"; };
+		04D7ACBE1D827C26005FD9C6 /* ShortestPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShortestPath.h; sourceTree = "<group>"; };
+		04D7ACBF1D827C26005FD9C6 /* ShortestPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShortestPath.m; sourceTree = "<group>"; };
+		04F1C75E1D82D1C300CDF462 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		F604CEA11D7D57A1002073B4 /* MyGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F604CEA51D7D57A1002073B4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F604CEA71D7D57A1002073B4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +77,15 @@
 		F604CEC51D7D57A1002073B4 /* MyGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F604CEC91D7D57A1002073B4 /* MyGameUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyGameUITests.m; sourceTree = "<group>"; };
 		F604CECB1D7D57A1002073B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F604CEDE1D7D8151002073B4 /* Ball.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ball.m; sourceTree = "<group>"; };
+		F604CEE01D7D81A3002073B4 /* Ball.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
+		F604CEE11D7D81AD002073B4 /* PlayBoard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayBoard.h; sourceTree = "<group>"; };
+		F604CEE21D7D8D27002073B4 /* PlayBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayBoard.m; sourceTree = "<group>"; };
+		F604CEE41D7D8F78002073B4 /* BallFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BallFactory.h; sourceTree = "<group>"; };
+		F604CEE51D7D9169002073B4 /* RandomBallFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomBallFactory.h; sourceTree = "<group>"; };
+		F604CEE61D7D9169002073B4 /* RandomBallFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomBallFactory.m; sourceTree = "<group>"; };
+		F618173C1D7E8BED0026D828 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
+		F618173D1D7E8BED0026D828 /* BoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,13 +136,20 @@
 		F604CEA31D7D57A1002073B4 /* MyGame */ = {
 			isa = PBXGroup;
 			children = (
+				04A57F661D86D91900A9DB47 /* RankingsViewController.h */,
+				04A57F671D86D91900A9DB47 /* RankingsViewController.m */,
+				04D7ACBA1D817625005FD9C6 /* Common.h */,
+				04F1C75E1D82D1C300CDF462 /* Common.m */,
+				04D7ACBB1D81C043005FD9C6 /* GameConfig.h */,
+				04D7ACBC1D81C79C005FD9C6 /* GameConfig.m */,
+				F61817391D7E8B800026D828 /* View */,
+				F61817381D7E6C020026D828 /* Models */,
 				F604CEA71D7D57A1002073B4 /* AppDelegate.h */,
+				04D7ACB91D816E49005FD9C6 /* BoardViewObserver.h */,
 				F604CEA81D7D57A1002073B4 /* AppDelegate.m */,
 				F604CEAA1D7D57A1002073B4 /* ViewController.h */,
 				F604CEAB1D7D57A1002073B4 /* ViewController.m */,
-				F604CEAD1D7D57A1002073B4 /* Main.storyboard */,
 				F604CEB01D7D57A1002073B4 /* Assets.xcassets */,
-				F604CEB21D7D57A1002073B4 /* LaunchScreen.storyboard */,
 				F604CEB51D7D57A1002073B4 /* Info.plist */,
 				F604CEA41D7D57A1002073B4 /* Supporting Files */,
 			);
@@ -138,6 +180,39 @@
 				F604CECB1D7D57A1002073B4 /* Info.plist */,
 			);
 			path = MyGameUITests;
+			sourceTree = "<group>";
+		};
+		F61817381D7E6C020026D828 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F604CEE11D7D81AD002073B4 /* PlayBoard.h */,
+				F604CEE21D7D8D27002073B4 /* PlayBoard.m */,
+				F604CEE41D7D8F78002073B4 /* BallFactory.h */,
+				F604CEE51D7D9169002073B4 /* RandomBallFactory.h */,
+				F604CEE61D7D9169002073B4 /* RandomBallFactory.m */,
+				F604CEE01D7D81A3002073B4 /* Ball.h */,
+				F604CEDE1D7D8151002073B4 /* Ball.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		F61817391D7E8B800026D828 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04A57F5D1D85325400A9DB47 /* UIView+Location.h */,
+				04A57F5E1D85325400A9DB47 /* UIView+Location.m */,
+				F604CEAD1D7D57A1002073B4 /* Main.storyboard */,
+				F604CEB21D7D57A1002073B4 /* LaunchScreen.storyboard */,
+				F618173C1D7E8BED0026D828 /* BoardView.h */,
+				F618173D1D7E8BED0026D828 /* BoardView.m */,
+				04D7ACBE1D827C26005FD9C6 /* ShortestPath.h */,
+				04D7ACBF1D827C26005FD9C6 /* ShortestPath.m */,
+				04A57F601D85594700A9DB47 /* NextBallsBoardView.h */,
+				04A57F611D85594700A9DB47 /* NextBallsBoardView.m */,
+				04A57F631D85980D00A9DB47 /* BallBoardSuperView.h */,
+				04A57F641D85980D00A9DB47 /* BallBoardSuperView.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +282,7 @@
 				TargetAttributes = {
 					F604CEA01D7D57A1002073B4 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 6KKRZB4E7A;
 					};
 					F604CEB91D7D57A1002073B4 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -270,9 +346,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F1C75F1D82D1C300CDF462 /* Common.m in Sources */,
 				F604CEAC1D7D57A1002073B4 /* ViewController.m in Sources */,
+				F618173E1D7E8BED0026D828 /* BoardView.m in Sources */,
 				F604CEA91D7D57A1002073B4 /* AppDelegate.m in Sources */,
+				04A57F621D85594700A9DB47 /* NextBallsBoardView.m in Sources */,
+				04A57F681D86D91900A9DB47 /* RankingsViewController.m in Sources */,
 				F604CEA61D7D57A1002073B4 /* main.m in Sources */,
+				04A57F5F1D85325400A9DB47 /* UIView+Location.m in Sources */,
+				F604CEE31D7D8D28002073B4 /* PlayBoard.m in Sources */,
+				04A57F651D85980D00A9DB47 /* BallBoardSuperView.m in Sources */,
+				F604CEDF1D7D8151002073B4 /* Ball.m in Sources */,
+				F604CEE71D7D9169002073B4 /* RandomBallFactory.m in Sources */,
+				04D7ACC01D827C26005FD9C6 /* ShortestPath.m in Sources */,
+				04D7ACBD1D81C79C005FD9C6 /* GameConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,10 +502,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sogou.robert.MyGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -426,10 +516,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sogou.robert.MyGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -498,6 +591,7 @@
 				F604CED01D7D57A1002073B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F604CED11D7D57A1002073B4 /* Build configuration list for PBXNativeTarget "MyGameTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +600,7 @@
 				F604CED31D7D57A1002073B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F604CED41D7D57A1002073B4 /* Build configuration list for PBXNativeTarget "MyGameUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +609,7 @@
 				F604CED61D7D57A1002073B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
