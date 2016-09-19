@@ -31,6 +31,10 @@
     return 3;
 }
 
++(int) rankingsCount {
+    return 10;
+}
+
 +(UIColor* ) getColorByIndex: (BALLCOLOR) colorIndex {
     NSArray* colorArray = @[[UIColor cyanColor],
                             [UIColor magentaColor], [UIColor greenColor],

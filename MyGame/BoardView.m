@@ -16,7 +16,7 @@
 @interface BoardView()
 {}
 
-@property (nonatomic, strong) NSMutableArray* ballViewArray;
+//@property (nonatomic, strong) NSMutableArray* ballViewArray;
 @property (nonatomic, strong) UIView* currentSelectedBallView;
 @property (nonatomic, readwrite) Index currentSelectedBallIndex;
 
@@ -67,7 +67,13 @@
 
 
 //View
--(void)initView {
+
+-(void) reinitView {
+    self.currentSelectedBallView = nil;
+    [self removeAllBallViewsAndClearDict];
+    SPSetSize(self.rowCount, self.columnCount);
+}
+-(void) initView {
     
     SPSetSize(self.rowCount, self.columnCount);
     
@@ -214,7 +220,7 @@
 
 
 
--(void) tapBallView: (UIView*) ballView withIndex: (Index) index {NSLog(@"tap");
+-(void) tapBallView: (UIView*) ballView withIndex: (Index) index {
     
     if(self.currentSelectedBallView == ballView) {
         [self changeBallViewAppearance:ballView selected:NO];

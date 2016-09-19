@@ -26,6 +26,7 @@
 -(void) dictsetIndex: (Index)index ofBallView: (UIView*) ballView;
 -(void) dictchangeIndexFrom: (Index) fromIndex to: (Index) toIndex ofBallView: (UIView*) ballView;
 -(void) dicRemoveIndex: (Index) index;
+-(void) removeAllBallViewsAndClearDict;
 
 
 @end

@@ -35,6 +35,8 @@ typedef enum{
 
 +(int) ballsCountGenerated;
 
++(int) rankingsCount;
+
 +(UIColor* ) getColorByIndex: (BALLCOLOR) colorIndex ;
 @end
 

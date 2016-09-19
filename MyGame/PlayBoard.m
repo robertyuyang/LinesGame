@@ -12,6 +12,7 @@
 #import "Ball.h"
 #import "Common.h"
 #import "RandomBallFactory.h"
+#import "ConcreteRankings.h"
 
 @import Foundation;
 
@@ -19,17 +20,31 @@
 @interface PlayBoard()
 {}
 
-@property (nonatomic, retain, getter=getCurrentCells) NSMutableArray* cellArray;
+@property (nonatomic, strong, getter=getCurrentCells) NSMutableArray* cellArray;
 @property (nonatomic, strong) id<BallFactory> ballFactory;
 @property (nonatomic) NSUInteger score;
-@property (nonatomic, readwrite) NSUInteger highScore;
+@property (nonatomic, strong) Rankings* localRankings;
+//@property (nonatomic, strong) Rankings* onlineRankings;
+//@property (nonatomic, strong) NSArray* rankingsArray;
 @property (nonatomic, strong) NSMutableArray* generatedBallsArray;
 @end
 
 @implementation PlayBoard
 
-@synthesize highScore = _highScore;
+-(Rankings*) localRankings {
+    if(!_localRankings) {
+        _localRankings = [[LocalRankings alloc] init];
+    }
+    return _localRankings;
+}
 
+
+//-(Rankings*) onlineRankings {
+//    if(!_onlineRankings) {
+//        _onlineRankings = [[OnlineRankings alloc] init];
+//    }
+//    return _onlineRankings;
+//}
 -(NSMutableArray*) generatedBallsArray {
     if(!_generatedBallsArray) {
         _generatedBallsArray = [[NSMutableArray alloc] init];
@@ -37,20 +52,19 @@
     return _generatedBallsArray;
 }
 
--(void) setHighScore:(NSUInteger)highScore {
-    _highScore = highScore;
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setInteger:_highScore forKey: @"highScore"];
-    [userDefaults synchronize];
-}
+
+
+//
+//-(void) setHighScore:(NSUInteger)highScore {
+//    _highScore = highScore;
+//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+//    [userDefaults setInteger:_highScore forKey: @"highScore"];
+//    [userDefaults synchronize];
+//}
 -(NSUInteger) highScore {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        _highScore = [userDefaults integerForKey: @"highScore"];
-    });
-    return _highScore;
+    return self.localRankings.highestScore;
 }
+
 -(id<BallFactory>) ballFactory {
     if(!_ballFactory) {
         _ballFactory = [[RandomBallFactory alloc] init];
@@ -132,6 +146,8 @@
             [deployMatrixIndexArray addObject:[NSNumber numberWithInt: matrixIndex]];
         }
     }
+    
+    
     //TODO verify the ball cannot in line
     
     
@@ -145,6 +161,12 @@
     
     
     [[NSNotificationCenter defaultCenter] postNotification: notification];
+
+    if([posArray count] == [blankCellList count]) {
+        [self gameOver];
+    }
+
+
 }
 -(void) generateNewBall {
     NSArray *newBallsArray =
@@ -226,8 +248,7 @@
                                                               withObject: [NSNull null]];
 }
 
--(void) calcScore: (int) sameColorBallCount {
-    self.score += sameColorBallCount * (sameColorBallCount - 3);
+-(void) changeScore: (NSUInteger) score {
     NSDictionary* userInfo = [[NSDictionary alloc]
                               initWithObjectsAndKeys: [NSNumber numberWithUnsignedInteger:self.score] , @"score", nil];
     [[NSNotificationCenter defaultCenter] postNotificationName: @"scoreChanged"
@@ -235,14 +256,18 @@
                                                        userInfo:userInfo];
     
     if(self.score > self.highScore) {
-        self.highScore = self.score;
+//        self.highScore = self.score;
     NSDictionary* userInfo = [[NSDictionary alloc]
                               initWithObjectsAndKeys: [NSNumber numberWithUnsignedInteger:self.score] , @"highScore", nil];
     [[NSNotificationCenter defaultCenter] postNotificationName: @"highScoreChanged"
                                                          object:nil
                                                        userInfo:userInfo];
     
-    }
+    } 
+}
+-(void) calcScore: (int) sameColorBallCount {
+    self.score += sameColorBallCount * (sameColorBallCount - 3);
+    [self changeScore: self.score];
 }
 -(void) calcAtBallMovedToRowIndex: (NSUInteger) newrow
                       ColumnIndex: (NSUInteger) newcol {
@@ -386,18 +411,52 @@
     [self calcAtBallMovedToRowIndex:newrow ColumnIndex:newcol];
     
     //add new ball;
-    [self nexStep];
+    [self nextStep];
     
 }
 
--(void)nexStep {
+-(void)nextStep {
     [self deployGeneratedBalls];
     [self generateNewBall];
 }
 
+
+
+-(void) restartGame {
+
+    self.score = 0;
+    [self changeScore: self.score];
+    
+    [self initWithWidth:_width andLength:_length];
+   
+    self.generatedBallsArray = nil;
+    [self startGame];
+    
+}
+
 -(void) startGame  {
-    [self nexStep];
-    [self nexStep];
+    [self nextStep];
+    [self nextStep];
+    for(int i = 0; i< 15; i++) {
+        [self nextStep];
+    }
+}
+
+-(void) gameOver {
+    if([self.localRankings isScoreQuanlified:self.score]) {
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName: @"GameOverWithNewScoreInRankings" object: nil];
+        //[self.localRankings addNewScoreInRankings:self.score];
+    }
+    else {
+        [[NSNotificationCenter defaultCenter] postNotificationName: @"GameOver" object: nil];
+    }
+}
+
+-(void)addNewScoreInRankings: (NSUInteger) score withName: (NSString*) name {
+    RankingsItem* item = [[RankingsItem alloc]initWithScore: score andName: name];
+    [self.localRankings addNewScoreInRankings: item];
+    
 }
 
 -(Ball*) ballRowIndext: (NSUInteger) row

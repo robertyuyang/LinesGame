@@ -11,6 +11,10 @@
 		04A57F621D85594700A9DB47 /* NextBallsBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A57F611D85594700A9DB47 /* NextBallsBoardView.m */; };
 		04A57F651D85980D00A9DB47 /* BallBoardSuperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A57F641D85980D00A9DB47 /* BallBoardSuperView.m */; };
 		04A57F681D86D91900A9DB47 /* RankingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A57F671D86D91900A9DB47 /* RankingsViewController.m */; };
+		04A57F8F1D87F05800A9DB47 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A57F8E1D87F05800A9DB47 /* TutorialViewController.m */; };
+		04A57FDE1D89B45500A9DB47 /* ResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A57FDD1D89B45500A9DB47 /* ResultView.m */; };
+		04A57FE11D8E698800A9DB47 /* Rankings.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A57FE01D8E698800A9DB47 /* Rankings.m */; };
+		04A57FE41D8E6FFC00A9DB47 /* ConcreteRankings.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A57FE31D8E6FFC00A9DB47 /* ConcreteRankings.m */; };
 		04D7ACBD1D81C79C005FD9C6 /* GameConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D7ACBC1D81C79C005FD9C6 /* GameConfig.m */; };
 		04D7ACC01D827C26005FD9C6 /* ShortestPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D7ACBF1D827C26005FD9C6 /* ShortestPath.m */; };
 		04F1C75F1D82D1C300CDF462 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F1C75E1D82D1C300CDF462 /* Common.m */; };
@@ -46,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0499A7561D8FA0C000D88EEB /* ResultViewObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResultViewObserver.h; sourceTree = "<group>"; };
 		04A57F5D1D85325400A9DB47 /* UIView+Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Location.h"; sourceTree = "<group>"; };
 		04A57F5E1D85325400A9DB47 /* UIView+Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Location.m"; sourceTree = "<group>"; };
 		04A57F601D85594700A9DB47 /* NextBallsBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextBallsBoardView.h; sourceTree = "<group>"; };
@@ -54,6 +59,14 @@
 		04A57F641D85980D00A9DB47 /* BallBoardSuperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BallBoardSuperView.m; sourceTree = "<group>"; };
 		04A57F661D86D91900A9DB47 /* RankingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingsViewController.h; sourceTree = "<group>"; };
 		04A57F671D86D91900A9DB47 /* RankingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingsViewController.m; sourceTree = "<group>"; };
+		04A57F8D1D87F05800A9DB47 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
+		04A57F8E1D87F05800A9DB47 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
+		04A57FDC1D89B45500A9DB47 /* ResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultView.h; sourceTree = "<group>"; };
+		04A57FDD1D89B45500A9DB47 /* ResultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultView.m; sourceTree = "<group>"; };
+		04A57FDF1D8E698800A9DB47 /* Rankings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rankings.h; sourceTree = "<group>"; };
+		04A57FE01D8E698800A9DB47 /* Rankings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rankings.m; sourceTree = "<group>"; };
+		04A57FE21D8E6FFC00A9DB47 /* ConcreteRankings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcreteRankings.h; sourceTree = "<group>"; };
+		04A57FE31D8E6FFC00A9DB47 /* ConcreteRankings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcreteRankings.m; sourceTree = "<group>"; };
 		04D7ACB91D816E49005FD9C6 /* BoardViewObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardViewObserver.h; sourceTree = "<group>"; };
 		04D7ACBA1D817625005FD9C6 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		04D7ACBB1D81C043005FD9C6 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
@@ -113,6 +126,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04A57F8C1D87B20C00A9DB47 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F604CEAA1D7D57A1002073B4 /* ViewController.h */,
+				F604CEAB1D7D57A1002073B4 /* ViewController.m */,
+				04A57F661D86D91900A9DB47 /* RankingsViewController.h */,
+				04A57F671D86D91900A9DB47 /* RankingsViewController.m */,
+				04A57F8D1D87F05800A9DB47 /* TutorialViewController.h */,
+				04A57F8E1D87F05800A9DB47 /* TutorialViewController.m */,
+				04D7ACBA1D817625005FD9C6 /* Common.h */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		F604CE981D7D57A1002073B4 = {
 			isa = PBXGroup;
 			children = (
@@ -136,19 +163,14 @@
 		F604CEA31D7D57A1002073B4 /* MyGame */ = {
 			isa = PBXGroup;
 			children = (
-				04A57F661D86D91900A9DB47 /* RankingsViewController.h */,
-				04A57F671D86D91900A9DB47 /* RankingsViewController.m */,
-				04D7ACBA1D817625005FD9C6 /* Common.h */,
+				04A57F8C1D87B20C00A9DB47 /* Controller */,
 				04F1C75E1D82D1C300CDF462 /* Common.m */,
 				04D7ACBB1D81C043005FD9C6 /* GameConfig.h */,
 				04D7ACBC1D81C79C005FD9C6 /* GameConfig.m */,
 				F61817391D7E8B800026D828 /* View */,
 				F61817381D7E6C020026D828 /* Models */,
 				F604CEA71D7D57A1002073B4 /* AppDelegate.h */,
-				04D7ACB91D816E49005FD9C6 /* BoardViewObserver.h */,
 				F604CEA81D7D57A1002073B4 /* AppDelegate.m */,
-				F604CEAA1D7D57A1002073B4 /* ViewController.h */,
-				F604CEAB1D7D57A1002073B4 /* ViewController.m */,
 				F604CEB01D7D57A1002073B4 /* Assets.xcassets */,
 				F604CEB51D7D57A1002073B4 /* Info.plist */,
 				F604CEA41D7D57A1002073B4 /* Supporting Files */,
@@ -192,6 +214,10 @@
 				F604CEE61D7D9169002073B4 /* RandomBallFactory.m */,
 				F604CEE01D7D81A3002073B4 /* Ball.h */,
 				F604CEDE1D7D8151002073B4 /* Ball.m */,
+				04A57FDF1D8E698800A9DB47 /* Rankings.h */,
+				04A57FE01D8E698800A9DB47 /* Rankings.m */,
+				04A57FE21D8E6FFC00A9DB47 /* ConcreteRankings.h */,
+				04A57FE31D8E6FFC00A9DB47 /* ConcreteRankings.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -199,6 +225,7 @@
 		F61817391D7E8B800026D828 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04D7ACB91D816E49005FD9C6 /* BoardViewObserver.h */,
 				04A57F5D1D85325400A9DB47 /* UIView+Location.h */,
 				04A57F5E1D85325400A9DB47 /* UIView+Location.m */,
 				F604CEAD1D7D57A1002073B4 /* Main.storyboard */,
@@ -211,6 +238,9 @@
 				04A57F611D85594700A9DB47 /* NextBallsBoardView.m */,
 				04A57F631D85980D00A9DB47 /* BallBoardSuperView.h */,
 				04A57F641D85980D00A9DB47 /* BallBoardSuperView.m */,
+				04A57FDC1D89B45500A9DB47 /* ResultView.h */,
+				04A57FDD1D89B45500A9DB47 /* ResultView.m */,
+				0499A7561D8FA0C000D88EEB /* ResultViewObserver.h */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -347,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04F1C75F1D82D1C300CDF462 /* Common.m in Sources */,
+				04A57FDE1D89B45500A9DB47 /* ResultView.m in Sources */,
 				F604CEAC1D7D57A1002073B4 /* ViewController.m in Sources */,
 				F618173E1D7E8BED0026D828 /* BoardView.m in Sources */,
 				F604CEA91D7D57A1002073B4 /* AppDelegate.m in Sources */,
@@ -357,9 +388,12 @@
 				F604CEE31D7D8D28002073B4 /* PlayBoard.m in Sources */,
 				04A57F651D85980D00A9DB47 /* BallBoardSuperView.m in Sources */,
 				F604CEDF1D7D8151002073B4 /* Ball.m in Sources */,
+				04A57FE11D8E698800A9DB47 /* Rankings.m in Sources */,
+				04A57FE41D8E6FFC00A9DB47 /* ConcreteRankings.m in Sources */,
 				F604CEE71D7D9169002073B4 /* RandomBallFactory.m in Sources */,
 				04D7ACC01D827C26005FD9C6 /* ShortestPath.m in Sources */,
 				04D7ACBD1D81C79C005FD9C6 /* GameConfig.m in Sources */,
+				04A57F8F1D87F05800A9DB47 /* TutorialViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

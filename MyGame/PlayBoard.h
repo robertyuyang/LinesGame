@@ -28,6 +28,7 @@
 @property (nonatomic, readonly) NSUInteger length;
 
 @property (nonatomic, readonly) NSUInteger highScore;
+@property (nonatomic, readonly) NSUInteger score;
 
 
 -(instancetype) initWithWidth: (NSUInteger) width andLength: (NSUInteger) length;
@@ -41,7 +42,11 @@
                columnIndex: (NSUInteger) col;
 -(BOOL) isCellEmptyAtRowIndex:(NSUInteger) row
                 columnIndex: (NSUInteger) col;
+
+
+-(void)addNewScoreInRankings: (NSUInteger) score withName: (NSString*) name;
 -(void) startGame;
+-(void) restartGame;
 
 @end
 

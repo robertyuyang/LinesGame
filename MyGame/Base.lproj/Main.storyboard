@@ -26,7 +26,7 @@
         <!--View Controller-->
         <scene sceneID="aAy-sU-RSF">
             <objects>
-                <viewController id="a57-qP-wIm" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="rankings" id="a57-qP-wIm" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="anV-uw-APT"/>
                         <viewControllerLayoutGuide type="bottom" id="81J-SC-pyr"/>
@@ -34,10 +34,70 @@
                     <view key="view" contentMode="scaleToFill" id="j9Y-CV-WoT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMk-ui-1Of">
+                                <rect key="frame" x="37" y="51" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="vuu-oi-Pfs">
+                        <barButtonItem key="rightBarButtonItem" title="GO" id="Otb-EH-Xvf">
+                            <connections>
+                                <segue destination="MwY-6u-aWj" kind="push" id="SVO-q8-YhG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9S-DC-yFK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="396" y="-238"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Mn6-TX-gRk">
+            <objects>
+                <viewController id="MwY-6u-aWj" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nJl-kL-zv8"/>
+                        <viewControllerLayoutGuide type="bottom" id="0pF-Bd-U7u"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YN5-v9-FEY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhc-VX-SKp">
+                                <rect key="frame" x="213" y="216" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ge8-sn-POY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2kt-nw-4jz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1214" y="-238"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lKZ-qW-oiS">
+            <objects>
+                <navigationController storyboardIdentifier="rankingsNav" automaticallyAdjustsScrollViewInsets="NO" id="YkJ-dP-SLt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kmE-7a-W2A">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="a57-qP-wIm" kind="relationship" relationship="rootViewController" id="a5y-KB-GZb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gB7-gG-5HZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-416" y="-238"/>
         </scene>

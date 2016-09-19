@@ -12,8 +12,12 @@
 #import "GameConfig.h"
 #import "BoardView.h"
 #import "NextBallsBoardView.h"
+#import "ResultView.h"
 #import "PlayBoard.h"
 #import "Common.h"
+
+#import "RankingsViewController.h"
+#import "TutorialViewController.h"
 
 //static int rowCount = [GameConfig rowCount];
 //static int columnCount = [GameConfig columnCount];
@@ -25,11 +29,20 @@
 @property (nonatomic, strong) PlayBoard* playBoard;
 @property (nonatomic, strong) UILabel* scoreValueLabel;
 @property (nonatomic, strong) UILabel* highScoreValueLabel;
-
+@property (nonatomic, strong) ResultView* resultView;
 
 @end
 
 @implementation ViewController
+
+-(ResultView*) resultView {
+    if(!_resultView) {
+        _resultView = [[ResultView alloc] initWithFrame:  self.view.frame];
+        _resultView.hidden = YES;
+        [self.view addSubview: _resultView];
+    }
+    return _resultView;
+}
 
 @synthesize boardView = _boardView;
 -(BoardView*) boardView {
@@ -48,7 +61,7 @@
     return _playBoard;
 }
 
--(void) setUpViews {
+-(void) setUpSubviews {
     
     
     //boardview
@@ -67,6 +80,7 @@
     [self.boardView initView];
 
     self.boardView.delegate = self;
+    self.resultView.delegate = self;
     
     //next balls board
     self.nextBallsBoardView = [[NextBallsBoardView alloc] init];
@@ -122,6 +136,11 @@
     
     self.scoreValueLabel = scoreValueLabel;
     self.highScoreValueLabel = highScoreValueLabel;
+   
+    highScoreValueLabel.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onHighScoreValueTap:)];
+    //tapGesture.numberOfTapsRequired = 1;
+    [highScoreValueLabel addGestureRecognizer:tapGesture];
 
     [self.view addSubview:scoreTextLabel];
     [self.view addSubview:scoreValueLabel];
@@ -129,6 +148,17 @@
     [self.view addSubview:highScoreValueLabel];
     
     
+    
+    
+}
+
+-(void) onHighScoreValueTap: (UIGestureRecognizer*) tap {
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName: @"Main" bundle: nil];
+    UIViewController* viewController = [storyboard instantiateViewControllerWithIdentifier: @"rankingsNav"];
+    //RankingsViewController* viewController = [[RankingsViewController alloc] init];
+    [viewController setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [viewController setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [self presentViewController:viewController animated:YES completion:nil  ];
 }
 
 -(void) setUpModels {
@@ -138,7 +168,8 @@
     [center addObserver: self selector: @selector(onBallsDeployed:) name:@"BallsDeployed" object:nil];
     [center addObserver: self selector: @selector(onScoreChanged:) name:@"scoreChanged" object:nil];
     [center addObserver: self selector: @selector(onHighScoreChanged:) name:@"highScoreChanged" object:nil];
-    
+    [center addObserver: self selector: @selector(onGameOver:) name:@"GameOver" object:nil];
+    [center addObserver: self selector: @selector(onGameOverWithNewScoreInRankings:) name:@"GameOverWithNewScoreInRankings" object:nil];
     
     
     
@@ -148,18 +179,65 @@
     [self.playBoard startGame];
      
 }
+
+-(void) onGameOverWithNewScoreInRankings: (NSNotification*) notification {
+  
+    self.resultView.hasNewScore = YES;
+    self.resultView.newScore = self.playBoard.score;
+    self.resultView.hidden = NO;
+    self.navigationController.navigationBar.hidden = YES;
+    [self.resultView resetViews];
+    [self.resultView popUp];
+}
+
+
+-(void) onGameOver: (NSNotification*) notification {
+    self.resultView.hasNewScore = NO;
+    self.resultView.hidden = NO;
+    self.navigationController.navigationBar.hidden = YES;
+    [self.resultView resetViews];
+    [self.resultView popUp];
+}
+
+-(void) setUpView {
+    
+    UIBarButtonItem* restartButton = [[UIBarButtonItem alloc] initWithTitle: @"RESTART"
+                                                                    style:UIBarButtonItemStylePlain
+                                                                     target:self
+                                                                     action:@selector(onRestart:)];
+    self.navigationItem.leftBarButtonItem = restartButton;
+    UIBarButtonItem* howToPlayButton = [[UIBarButtonItem alloc] initWithTitle: @"TUTORIAL"
+                                                                    style:UIBarButtonItemStylePlain
+                                                                     target:self
+                                                                     action:@selector(onTutorial:)];
+    self.navigationItem.rightBarButtonItem = howToPlayButton;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    [self setUpView];
 
-    [self setUpViews];
+    [self setUpSubviews];
     
     
     [self setUpModels];
     
     
 }
+
+
+-(void)onTutorial: (id)sender {
+    [self.navigationController pushViewController:[[TutorialViewController alloc]init] animated:YES];
+}
+-(void)onRestart: (id)sender {
+    [self.boardView reinitView];
+    [self.playBoard restartGame];
+    
+    
+    self.resultView.hidden = YES;
+    self.navigationController.navigationBar.hidden = NO;
+}
+
 
 -(void)onScoreChanged: (NSNotification*) notification {
     NSNumber* num = [notification.userInfo objectForKey: @"score"];
@@ -195,7 +273,7 @@
     if(!generatedBallsArray || !deployMatrixIndexArray) {
         return;
     }
-    if([generatedBallsArray count] != [deployMatrixIndexArray count]){
+    if([generatedBallsArray count] < [deployMatrixIndexArray count]){
         return;
     }
     
@@ -249,8 +327,22 @@
     }
     
     
+}
+
+
+-(void) onRestart {
+    [self onRestart:nil];
+}
+-(void) onNewScoreUserNameInputed: (NSString*) name {
     
+    [self.playBoard addNewScoreInRankings: self.playBoard.score withName:name];
+
     
+    self.navigationController.navigationBar.hidden = NO;
+
+    RankingsViewController *newvc = [[RankingsViewController alloc]init];
+    [newvc setModalPresentationStyle:  UIModalPresentationCurrentContext];
+    [self presentViewController:newvc animated:YES completion:nil];
 }
 
 -(void)onBoardMoveFrom: (Index) fromIndex to:(Index) toIndex {
@@ -258,6 +350,9 @@
                              oldColumn:fromIndex.col
                                 newRow:toIndex.row
                              newColumn:toIndex.col];
+
+    //[self onNewScoreInRankings: nil];
+
 }
 
 - (void)didReceiveMemoryWarning {

@@ -46,6 +46,8 @@
 }
 
 -(NSArray*) generateNewPositionWithRange: (NSUInteger) range withCount: (NSUInteger) count {
+    count = MIN(range, count);
+    
     NSMutableArray *mutableArray = [[NSMutableArray alloc] initWithCapacity: count];
     NSMutableSet *set = [[NSMutableSet alloc] init];
     for(int i = 0; i< count ; i++){
@@ -53,7 +55,11 @@
         int index = arc4random() % range;
         NSString *indexString =[NSString stringWithFormat: @"%d", index];
         while([set containsObject: indexString]) {
-            index = (index++) % (range);
+            index++;
+            if(index >= range) {
+                index = index % range;
+            }
+            indexString =[NSString stringWithFormat: @"%d", index];
         }
         
         [set addObject: indexString];

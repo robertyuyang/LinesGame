@@ -19,4 +19,5 @@
 -(UIView*) addBallViewWithColor : (UIColor*) ballColor atX: (NSUInteger) x andY: (NSUInteger) y;
 -(void) removeBallViewAtIndex: (Index) index;
 -(void) initView ;
+-(void) reinitView ;
 @end

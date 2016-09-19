@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "BoardViewObserver.h"
+#import "ResultViewObserver.h"
 
-@interface ViewController : UIViewController <BoardViewObserver>
+@interface ViewController : UIViewController <BoardViewObserver, ResultViewObserver>
 
+//BoardViewObserver
 -(void)onBoardTapByIndexAtRow: (NSUInteger) x andColumn: (NSUInteger) y;
+
+//ResultViewObserver
+-(void) onRestart;
+-(void) onNewScoreUserNameInputed: (NSString*) name;
 @end
 

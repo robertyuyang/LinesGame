@@ -9,5 +9,8 @@
 #import "RankingsViewController.h"
 
 @implementation RankingsViewController
-
+-(void)viewDidLoad {
+    NSLog(@"hahaha");
+    
+}
 @end

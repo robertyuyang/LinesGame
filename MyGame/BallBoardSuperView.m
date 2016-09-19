@@ -120,5 +120,17 @@
 }
 
 
+-(void) removeAllBallViewsAndClearDict {
+    for(NSString* key in self.ballViewDict) {
+        UIView* ballView = [self.ballViewDict objectForKey: key];
+        if(ballView) {
+            [ballView removeFromSuperview];
+            
+        }
+    }
+    [self.ballViewDict removeAllObjects];
+    
+}
+
 
 @end
