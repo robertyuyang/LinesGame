@@ -112,6 +112,12 @@ void SPSetSize(int rowCount, int columnCount) {
         }
     }
     
+    for(int i = 0; i< rowCount; i++) {
+        for(int j = 0; j < columnCount; j++) {
+            gBallMatrix[i][j] = 0;
+        }
+    }
+    
     gRowCount = rowCount;
     gColumnCount = columnCount;
 }
@@ -160,7 +166,7 @@ void SPRemoveBall(Index index) {
 
 BOOL SPGetShortestPath(Index fromIndex, Index toIndex,  NSMutableArray* path) {
 
-    int ppp[81];
+   /* int ppp[81];
     int matrix[81][81];
     int rowCount =9, columnCount = 9;
     for(int i = 0; i< rowCount; i++){
@@ -184,7 +190,7 @@ BOOL SPGetShortestPath(Index fromIndex, Index toIndex,  NSMutableArray* path) {
     int shortestPath1 = dijkstra(gRowCount * gColumnCount, matrix, 10, 0, ppp);
     int shortestPath2 = dijkstra(gRowCount * gColumnCount, gConnectMatrix, 10, 0, ppp);
     
-    
+   */
     
     if(!path) {
         return NO;
