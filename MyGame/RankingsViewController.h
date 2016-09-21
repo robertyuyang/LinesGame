@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Rankings.h"
 
-@interface RankingsViewController : UIViewController
+@interface RankingsViewController :  UITableViewController
 
+@property (nonatomic, strong) Rankings* rankings;
 @end

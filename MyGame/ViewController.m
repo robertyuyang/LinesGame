@@ -30,10 +30,35 @@
 @property (nonatomic, strong) UILabel* scoreValueLabel;
 @property (nonatomic, strong) UILabel* highScoreValueLabel;
 @property (nonatomic, strong) ResultView* resultView;
+@property (nonatomic, strong) UITabBarController* tabBarController;
 
 @end
 
 @implementation ViewController
+
+-(UITabBarController*) tabBarController {
+    
+    if(_tabBarController) {
+        return _tabBarController;
+    }
+    UITabBarController* tabBarController = [[UITabBarController alloc] init];
+    
+    RankingsViewController *localvc = [[RankingsViewController alloc]init];
+    localvc.title = @"local";
+    localvc.rankings = self.playBoard.localRankings;
+    [localvc.tabBarItem initWithTabBarSystemItem: UITabBarSystemItemRecents tag:0];
+    
+    RankingsViewController *onlinevc = [[RankingsViewController alloc]init];
+    onlinevc.title = @"online";
+    onlinevc.rankings = self.playBoard.onlineRankings;
+    [onlinevc.tabBarItem initWithTabBarSystemItem: UITabBarSystemItemTopRated tag:3];
+   
+    tabBarController.viewControllers = @[localvc, onlinevc];
+    
+    _tabBarController = tabBarController;
+    
+    return _tabBarController;
+}
 
 -(ResultView*) resultView {
     if(!_resultView) {
@@ -55,8 +80,8 @@
 
 -(PlayBoard*) playBoard {
     if(!_playBoard) {
-        self.playBoard = [[PlayBoard alloc] initWithWidth:[GameConfig rowCount]
-                                            andLength:[GameConfig columnCount]];
+        self.playBoard = [PlayBoard sharedObject];
+        
     }
     return _playBoard;
 }
@@ -153,6 +178,9 @@
 }
 
 -(void) onHighScoreValueTap: (UIGestureRecognizer*) tap {
+    [self pushRankingsViewControllers];
+    return;
+    
     UIStoryboard* storyboard = [UIStoryboard storyboardWithName: @"Main" bundle: nil];
     UIViewController* viewController = [storyboard instantiateViewControllerWithIdentifier: @"rankingsNav"];
     //RankingsViewController* viewController = [[RankingsViewController alloc] init];
@@ -326,12 +354,15 @@
         return;
     }
     
-    
 }
 
 
 -(void) onRestart {
     [self onRestart:nil];
+}
+
+-(void) pushRankingsViewControllers {
+   [self.navigationController pushViewController:self.tabBarController animated:YES];
 }
 -(void) onNewScoreUserNameInputed: (NSString*) name {
     
@@ -340,9 +371,9 @@
     
     self.navigationController.navigationBar.hidden = NO;
 
-    RankingsViewController *newvc = [[RankingsViewController alloc]init];
-    [newvc setModalPresentationStyle:  UIModalPresentationCurrentContext];
-    [self presentViewController:newvc animated:YES completion:nil];
+    [self pushRankingsViewControllers];
+    //[newvc setModalPresentationStyle:  UIModalPresentationCurrentContext];
+    //[self presentViewController:newvc animated:YES completion:nil];
 }
 
 -(void)onBoardMoveFrom: (Index) fromIndex to:(Index) toIndex {

@@ -15,6 +15,8 @@
 		04A57FDE1D89B45500A9DB47 /* ResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A57FDD1D89B45500A9DB47 /* ResultView.m */; };
 		04A57FE11D8E698800A9DB47 /* Rankings.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A57FE01D8E698800A9DB47 /* Rankings.m */; };
 		04A57FE41D8E6FFC00A9DB47 /* ConcreteRankings.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A57FE31D8E6FFC00A9DB47 /* ConcreteRankings.m */; };
+		04B5BD021D9142DB00823878 /* splash.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 04B5BD011D9142DB00823878 /* splash.jpeg */; };
+		04B5BD051D928A4800823878 /* LaunchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B5BD041D928A4800823878 /* LaunchScreenViewController.m */; };
 		04D7ACBD1D81C79C005FD9C6 /* GameConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D7ACBC1D81C79C005FD9C6 /* GameConfig.m */; };
 		04D7ACC01D827C26005FD9C6 /* ShortestPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D7ACBF1D827C26005FD9C6 /* ShortestPath.m */; };
 		04F1C75F1D82D1C300CDF462 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F1C75E1D82D1C300CDF462 /* Common.m */; };
@@ -67,6 +69,9 @@
 		04A57FE01D8E698800A9DB47 /* Rankings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rankings.m; sourceTree = "<group>"; };
 		04A57FE21D8E6FFC00A9DB47 /* ConcreteRankings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcreteRankings.h; sourceTree = "<group>"; };
 		04A57FE31D8E6FFC00A9DB47 /* ConcreteRankings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConcreteRankings.m; sourceTree = "<group>"; };
+		04B5BD011D9142DB00823878 /* splash.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = splash.jpeg; sourceTree = "<group>"; };
+		04B5BD031D928A4800823878 /* LaunchScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchScreenViewController.h; sourceTree = "<group>"; };
+		04B5BD041D928A4800823878 /* LaunchScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchScreenViewController.m; sourceTree = "<group>"; };
 		04D7ACB91D816E49005FD9C6 /* BoardViewObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardViewObserver.h; sourceTree = "<group>"; };
 		04D7ACBA1D817625005FD9C6 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		04D7ACBB1D81C043005FD9C6 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
@@ -129,6 +134,8 @@
 		04A57F8C1D87B20C00A9DB47 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				04B5BD031D928A4800823878 /* LaunchScreenViewController.h */,
+				04B5BD041D928A4800823878 /* LaunchScreenViewController.m */,
 				F604CEAA1D7D57A1002073B4 /* ViewController.h */,
 				F604CEAB1D7D57A1002073B4 /* ViewController.m */,
 				04A57F661D86D91900A9DB47 /* RankingsViewController.h */,
@@ -181,6 +188,7 @@
 		F604CEA41D7D57A1002073B4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				04B5BD011D9142DB00823878 /* splash.jpeg */,
 				F604CEA51D7D57A1002073B4 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -351,6 +359,7 @@
 			files = (
 				F604CEB41D7D57A1002073B4 /* LaunchScreen.storyboard in Resources */,
 				F604CEB11D7D57A1002073B4 /* Assets.xcassets in Resources */,
+				04B5BD021D9142DB00823878 /* splash.jpeg in Resources */,
 				F604CEAF1D7D57A1002073B4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04F1C75F1D82D1C300CDF462 /* Common.m in Sources */,
+				04B5BD051D928A4800823878 /* LaunchScreenViewController.m in Sources */,
 				04A57FDE1D89B45500A9DB47 /* ResultView.m in Sources */,
 				F604CEAC1D7D57A1002073B4 /* ViewController.m in Sources */,
 				F618173E1D7E8BED0026D828 /* BoardView.m in Sources */,
@@ -543,6 +553,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sogou.robert.MyGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -557,6 +568,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sogou.robert.MyGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

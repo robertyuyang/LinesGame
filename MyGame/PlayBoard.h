@@ -14,6 +14,7 @@
 #import <Foundation/Foundation.h>
 
 #import "Ball.h"
+#import "Rankings.h"
 
 //@PlayBoard
 
@@ -30,8 +31,12 @@
 @property (nonatomic, readonly) NSUInteger highScore;
 @property (nonatomic, readonly) NSUInteger score;
 
+@property (nonatomic, strong) Rankings* localRankings;
+@property (nonatomic, strong) Rankings* onlineRankings;
 
--(instancetype) initWithWidth: (NSUInteger) width andLength: (NSUInteger) length;
++(instancetype) sharedObject;
+
+-(void)init;
 
 
 -(void) moveBallFromOldRow: (NSUInteger) row

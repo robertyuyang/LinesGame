@@ -55,8 +55,7 @@
     if([self.rankingsArray count] == 0) {
         return 0;
     }
-    NSData *data = [self.rankingsArray firstObject];
-    RankingsItem *item = [ NSKeyedUnarchiver unarchiveObjectWithData: data];
+    RankingsItem *item = [self.rankingsArray firstObject];
     if(![item isKindOfClass: [ RankingsItem class]]) {
         return 0;
     }
@@ -74,9 +73,8 @@
         return YES;
     }
     
-    NSData *data = [self.rankingsArray lastObject];
+    RankingsItem *item = [self.rankingsArray lastObject];
     
-    RankingsItem *item = [ NSKeyedUnarchiver unarchiveObjectWithData: data];
     if(![item isKindOfClass: [ RankingsItem class]]) {
         return NO;
     }
@@ -88,15 +86,13 @@
     NSMutableArray* newRankingsArray = [[NSMutableArray alloc] initWithArray: self.rankingsArray];
     BOOL newScoreAddedInRankings = NO;
     
-    NSData* newData = [NSKeyedArchiver archivedDataWithRootObject:newItem];
    
-    NSData *curData = nil;
     for(NSUInteger i =0; i < [newRankingsArray count]; i++) {
         
-        RankingsItem* curItem = [NSKeyedUnarchiver unarchiveObjectWithData: [newRankingsArray objectAtIndex: i ]];
+        RankingsItem* curItem = [newRankingsArray objectAtIndex: i ];
         
         if(curItem && curItem.score <= newItem.score) {
-            [newRankingsArray insertObject:newData atIndex:i];
+            [newRankingsArray insertObject:newItem atIndex:i];
             newScoreAddedInRankings = YES;
             break;
         }
@@ -106,7 +102,7 @@
         [newRankingsArray removeLastObject];
     }
     else if(([newRankingsArray count] < [GameConfig rankingsCount ] ) && !newScoreAddedInRankings) {
-        [newRankingsArray addObject: newData];
+        [newRankingsArray addObject: newItem];
         newScoreAddedInRankings = YES;
     }
     

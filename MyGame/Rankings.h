@@ -28,10 +28,13 @@
 
 @interface Rankings : NSObject
 
-@property (nonatomic, strong, readwrite) NSArray* rankingsArray;
+@property (atomic, strong, readwrite) NSArray* rankingsArray;//atomic
 
 @property (nonatomic, readonly) NSUInteger highestScore;
 
+@property (nonatomic) BOOL dataLoaded;
+
+-(BOOL) loadData;
 -(BOOL) isScoreQuanlified: (NSUInteger) score;
 -(BOOL) addNewScoreInRankings: (RankingsItem*) newItem;
 

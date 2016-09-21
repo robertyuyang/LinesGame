@@ -23,19 +23,36 @@
 @property (nonatomic, strong, getter=getCurrentCells) NSMutableArray* cellArray;
 @property (nonatomic, strong) id<BallFactory> ballFactory;
 @property (nonatomic) NSUInteger score;
-@property (nonatomic, strong) Rankings* localRankings;
-//@property (nonatomic, strong) Rankings* onlineRankings;
-//@property (nonatomic, strong) NSArray* rankingsArray;
 @property (nonatomic, strong) NSMutableArray* generatedBallsArray;
 @end
 
 @implementation PlayBoard
+
+
+
++(instancetype) sharedObject {
+    static id _sharedObject;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedObject = [[PlayBoard alloc] initWithWidth: [ GameConfig columnCount] andLength:[ GameConfig rowCount]];
+    });
+    
+    return _sharedObject;
+}
+
 
 -(Rankings*) localRankings {
     if(!_localRankings) {
         _localRankings = [[LocalRankings alloc] init];
     }
     return _localRankings;
+}
+
+-(Rankings*) onlineRankings {
+    if(!_onlineRankings) {
+        _onlineRankings = [[OnlineRankings alloc] init];
+    }
+    return _onlineRankings;
 }
 
 
@@ -62,6 +79,7 @@
 //    [userDefaults synchronize];
 //}
 -(NSUInteger) highScore {
+    NSUInteger score = self.onlineRankings.highestScore;
     return self.localRankings.highestScore;
 }
 
@@ -73,19 +91,45 @@
     return _ballFactory;
 }
 
+
+-(void)initCells {
+    if(![self getCurrentCells]) {
+        NSMutableArray* array = [[NSMutableArray alloc] init];
+        int rowIndex = 0, columnIndex = 0;
+        for(rowIndex = 0; rowIndex < [self length]; rowIndex++) {
+            NSMutableArray* newRow = [[NSMutableArray alloc] initWithCapacity: [self width]];
+            for(columnIndex = 0; columnIndex < [self width]; columnIndex++) {
+                [newRow addObject: [NSNull null]];
+            }
+            [array addObject: newRow];
+        }
+        [self setCellArray: array];
+        
+    }
+    else {
+        int rowIndex = 0, columnIndex = 0;
+        for(rowIndex = 0; rowIndex < [self length]; rowIndex++) {
+            for(columnIndex = 0; columnIndex < [self width]; columnIndex++) {
+                Index index;
+                index.col = columnIndex;
+                index.row = rowIndex;
+                [self makeBlankCellAt: index];
+            }
+        }
+    }
+}
+
+-(void)init {
+    [self initCells];
+    [self.onlineRankings loadData];
+    [self.localRankings loadData];
+//    NSLog( @"start to sleep");
+//    [NSThread sleepForTimeInterval: 3];
+//    NSLog( @"end sleep");
+}
 -(instancetype) initWithWidth: (NSUInteger) width andLength: (NSUInteger) length  {
     _width = width;
     _length = length;
-    NSMutableArray* array = [[NSMutableArray alloc] init];
-    int rowIndex = 0, columnIndex = 0;
-    for(rowIndex = 0; rowIndex < length; rowIndex++) {
-        NSMutableArray* newRow = [[NSMutableArray alloc] initWithCapacity: width];
-        for(columnIndex = 0; columnIndex < width; columnIndex++) {
-            [newRow addObject: [NSNull null]];
-        }
-        [array addObject: newRow];
-    }
-    _cellArray = array;
     
     return self;
 }
@@ -427,7 +471,8 @@
     self.score = 0;
     [self changeScore: self.score];
     
-    [self initWithWidth:_width andLength:_length];
+    
+    [self initCells];
    
     self.generatedBallsArray = nil;
     [self startGame];
@@ -437,9 +482,9 @@
 -(void) startGame  {
     [self nextStep];
     [self nextStep];
-    for(int i = 0; i< 15; i++) {
-        [self nextStep];
-    }
+//    for(int i = 0; i< 15; i++) {
+//        [self nextStep];
+//    }
 }
 
 -(void) gameOver {
