@@ -70,8 +70,9 @@
    
     NSCondition *condition = [[NSCondition alloc] init];
     
-    NSURL* url = [[NSURL alloc] initWithString: @"http://macdemacbook-pro.local:8000/ra.json"];
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+    NSURL* url = [[NSURL alloc] initWithString: @"http://macdemacbook-pro.local:8000/ra123.json"];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:3.0];
+   // NSURLRequest *request = [[NSURLRequest alloc] initinitWithURL:url];
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration ephemeralSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration: sessionConfig];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -108,8 +109,8 @@
             }
             
             
-            [condition signal];
         }
+        [condition signal];
     }];
     [task resume];
     
